@@ -1,0 +1,6 @@
+[32mINFO:[39m Server instance running on: [36mhttp://localhost:4400[39m
+[32mINFO:[39m CORS XHR proxy service on: [36mhttp://localhost:4400/ripple/xhr_proxy[39m
+[32mINFO:[39m JSONP XHR proxy service on: [36mhttp://localhost:4400/ripple/jsonp_xhr_proxy[39m
+Cordova 3.0 Project detected...
+[32mINFO: [39mCould not find cordova as a local module. Expecting to find it installed globally.
+Terminate batch job (Y/N)? 

@@ -1,0 +1,6 @@
+E:\Git\CordovaGenerator\ConsoleApp\bin\Release\ConsoleApp.exe.config
+E:\Git\CordovaGenerator\ConsoleApp\bin\Release\ConsoleApp.exe
+E:\Git\CordovaGenerator\ConsoleApp\bin\Release\ConsoleApp.pdb
+E:\Git\CordovaGenerator\ConsoleApp\obj\Release\ConsoleApp.csprojResolveAssemblyReference.cache
+E:\Git\CordovaGenerator\ConsoleApp\obj\Release\ConsoleApp.exe
+E:\Git\CordovaGenerator\ConsoleApp\obj\Release\ConsoleApp.pdb

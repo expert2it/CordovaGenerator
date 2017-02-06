@@ -1,0 +1,27 @@
+[32mINFO:[39m Server instance running on: [36mhttp://localhost:4400[39m
+[32mINFO:[39m CORS XHR proxy service on: [36mhttp://localhost:4400/ripple/xhr_proxy[39m
+[32mINFO:[39m JSONP XHR proxy service on: [36mhttp://localhost:4400/ripple/jsonp_xhr_proxy[39m
+Cordova 3.0 Project detected...
+[32mINFO: [39mCould not find cordova as a local module. Expecting to find it installed globally.
+[32mINFO:[39m Using Browser User Agent (String)
+refreshing project (platform: android) ...
+... done.
+[32mINFO:[39m Using Browser User Agent (String)
+refreshing project (platform: android) ...
+... done.
+[32mINFO:[39m Set Device User Agent (String): "Mozilla/5.0 (Linux; Android 4.0.1; Galaxy Nexus Build/ITL41F) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"
+refreshing project (platform: android) ...
+... done.
+[32mINFO:[39m Proxying cross origin XMLHttpRequest - http://actionnews.1touch.my/mobile/api/getAllPlainSubject
+[32mINFO:[39m Proxying cross origin XMLHttpRequest - http://actionnews.1touch.my/mobile/api/getUnreadNewsCounter
+[32mINFO:[39m Proxying cross origin XMLHttpRequest - http://actionnews.1touch.my/mobile/api/getAllDailyNewsDate
+[32mINFO:[39m Set Device User Agent (String): "Mozilla/5.0 (Linux; Android 4.0.1; Galaxy Nexus Build/ITL41F) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19"
+refreshing project (platform: android) ...
+... done.
+[32mINFO:[39m Proxying cross origin XMLHttpRequest - http://actionnews.1touch.my/mobile/api/getAllPlainSubject
+[32mINFO:[39m Proxying cross origin XMLHttpRequest - http://actionnews.1touch.my/mobile/api/getUnreadNewsCounter
+[32mINFO:[39m Proxying cross origin XMLHttpRequest - http://actionnews.1touch.my/mobile/api/getAllDailyNewsDate
+[32mINFO:[39m Using Browser User Agent (String)
+refreshing project (platform: android) ...
+... done.
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? 

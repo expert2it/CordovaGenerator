@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">    
+    <meta http-equiv="Content-Security-Policy" content="default-src *; connect-src *;  img-src * data:; style-src 'self' 'unsafe-inline' *; media-src *; script-src 'self' 'unsafe-inline';">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <title>Log in</title>
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Ionicons -->
+    <link href="css/ionicons.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="css/jquery.mobile.custom.structure.min.css" rel="stylesheet" />
+    <!-- Theme style ***** minified file is the original backup, Please minify the AdminLTE.css & skin-blue.css manually for disturbution ***** -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.css">
+    <!-- iCheck -->
+    <link href="plugins/iCheck/square/blue.css" rel="stylesheet" />
+    <link href="css/jquery.mobile.custom.structure.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="#"><b>CBD</b>News</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">Please sign in</p>
+            <form action="javascript:login()" method="post">
+                <div class="form-group has-feedback">
+                    <input id="email" type="email" class="form-control" placeholder="Email">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input id="password" type="password" class="form-control" placeholder="Password">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <!-- /.col -->
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="scripts/jquery-2.2.3.min.js"></script>
+    <script src="scripts/jquery.mobile.custom.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="plugins/iCheck/icheck.min.js"></script>
+    <!--<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>-->
+    <script src="scripts/common.js"></script>
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
+    </script>
+</body>
+</html>

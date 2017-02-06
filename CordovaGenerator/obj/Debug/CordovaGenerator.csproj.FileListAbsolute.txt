@@ -1,0 +1,9 @@
+E:\Git\CordovaGenerator\CordovaGenerator\bin\Debug\CordovaGenerator.exe.config
+E:\Git\CordovaGenerator\CordovaGenerator\bin\Debug\CordovaGenerator.exe
+E:\Git\CordovaGenerator\CordovaGenerator\bin\Debug\CordovaGenerator.pdb
+E:\Git\CordovaGenerator\CordovaGenerator\obj\Debug\CordovaGenerator.csprojResolveAssemblyReference.cache
+E:\Git\CordovaGenerator\CordovaGenerator\obj\Debug\CordovaGenerator.Form1.resources
+E:\Git\CordovaGenerator\CordovaGenerator\obj\Debug\CordovaGenerator.Properties.Resources.resources
+E:\Git\CordovaGenerator\CordovaGenerator\obj\Debug\CordovaGenerator.csproj.GenerateResource.Cache
+E:\Git\CordovaGenerator\CordovaGenerator\obj\Debug\CordovaGenerator.exe
+E:\Git\CordovaGenerator\CordovaGenerator\obj\Debug\CordovaGenerator.pdb

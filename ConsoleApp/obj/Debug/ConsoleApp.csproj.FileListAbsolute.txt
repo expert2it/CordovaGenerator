@@ -1,0 +1,11 @@
+E:\Git\CordovaGenerator\ConsoleApp\bin\Debug\ConsoleApp.pdb
+E:\Git\CordovaGenerator\ConsoleApp\obj\Debug\ConsoleApp.csprojResolveAssemblyReference.cache
+E:\Git\CordovaGenerator\ConsoleApp\obj\Debug\ConsoleApp.pdb
+E:\Git\CordovaGenerator\ConsoleApp\bin\Debug\ConsoleApp.dll.config
+E:\Git\CordovaGenerator\ConsoleApp\bin\Debug\ConsoleApp.dll
+E:\Git\CordovaGenerator\ConsoleApp\obj\Debug\ConsoleApp.dll
+D:\Projects\CordovaGenerator\ConsoleApp\bin\Debug\ConsoleApp.dll.config
+D:\Projects\CordovaGenerator\ConsoleApp\bin\Debug\ConsoleApp.dll
+D:\Projects\CordovaGenerator\ConsoleApp\bin\Debug\ConsoleApp.pdb
+D:\Projects\CordovaGenerator\ConsoleApp\obj\Debug\ConsoleApp.dll
+D:\Projects\CordovaGenerator\ConsoleApp\obj\Debug\ConsoleApp.pdb

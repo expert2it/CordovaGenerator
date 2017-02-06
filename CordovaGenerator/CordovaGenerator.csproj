@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.WinForms.53.0.1\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.53.0.1\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Common.53.0.1\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.53.0.1\build\CefSharp.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{056B3843-B7D3-4CD6-AA8F-41145DEF679A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CordovaGenerator</RootNamespace>
+    <AssemblyName>CordovaGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="boundCustomObject.cs" />
+    <Compile Include="cgBrowserUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cgBrowserUserControl.Designer.cs">
+      <DependentUpon>cgBrowserUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChromeWidgetMessageInterceptor.cs" />
+    <Compile Include="mainFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="mainFrm.Designer.cs">
+      <DependentUpon>mainFrm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="cgBrowserUserControl.resx">
+      <DependentUpon>cgBrowserUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="mainFrm.resx">
+      <DependentUpon>mainFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="html-resources\bootstrap\css\bootstrap.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\bootstrap\css\bootstrap.min.css.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\bootstrap\fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\bootstrap\fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\bootstrap\fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\bootstrap\fonts\glyphicons-halflings-regular.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\fontawesome-webfont.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\fonts\xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="html-resources\scripts\jquery.mobile.custom.min.js.toucheventOnly">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_date_range_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="html-resources\bootstrap\css\bootstrap.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\bootstrap\css\bootstrap.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\bootstrap\fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\bootstrap\js\bootstrap.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\bootstrap\js\bootstrap.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\bootstrap\js\npm.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\css\font-awesome.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\css\google.fonts.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\css\images\ajax-loader.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\css\images\icons-png\action-black.png" />
+    <Content Include="html-resources\css\images\icons-png\action-white.png" />
+    <Content Include="html-resources\css\images\icons-png\alert-black.png" />
+    <Content Include="html-resources\css\images\icons-png\alert-white.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-d-black.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-d-l-black.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-d-l-white.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-d-r-black.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-d-r-white.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-d-white.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-l-black.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-l-white.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-r-black.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-r-white.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-u-black.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-u-l-black.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-u-l-white.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-u-r-black.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-u-r-white.png" />
+    <Content Include="html-resources\css\images\icons-png\arrow-u-white.png" />
+    <Content Include="html-resources\css\images\icons-png\audio-black.png" />
+    <Content Include="html-resources\css\images\icons-png\audio-white.png" />
+    <Content Include="html-resources\css\images\icons-png\back-black.png" />
+    <Content Include="html-resources\css\images\icons-png\back-white.png" />
+    <Content Include="html-resources\css\images\icons-png\bars-black.png" />
+    <Content Include="html-resources\css\images\icons-png\bars-white.png" />
+    <Content Include="html-resources\css\images\icons-png\bullets-black.png" />
+    <Content Include="html-resources\css\images\icons-png\bullets-white.png" />
+    <Content Include="html-resources\css\images\icons-png\calendar-black.png" />
+    <Content Include="html-resources\css\images\icons-png\calendar-white.png" />
+    <Content Include="html-resources\css\images\icons-png\camera-black.png" />
+    <Content Include="html-resources\css\images\icons-png\camera-white.png" />
+    <Content Include="html-resources\css\images\icons-png\carat-d-black.png" />
+    <Content Include="html-resources\css\images\icons-png\carat-d-white.png" />
+    <Content Include="html-resources\css\images\icons-png\carat-l-black.png" />
+    <Content Include="html-resources\css\images\icons-png\carat-l-white.png" />
+    <Content Include="html-resources\css\images\icons-png\carat-r-black.png" />
+    <Content Include="html-resources\css\images\icons-png\carat-r-white.png" />
+    <Content Include="html-resources\css\images\icons-png\carat-u-black.png" />
+    <Content Include="html-resources\css\images\icons-png\carat-u-white.png" />
+    <Content Include="html-resources\css\images\icons-png\check-black.png" />
+    <Content Include="html-resources\css\images\icons-png\check-white.png" />
+    <Content Include="html-resources\css\images\icons-png\clock-black.png" />
+    <Content Include="html-resources\css\images\icons-png\clock-white.png" />
+    <Content Include="html-resources\css\images\icons-png\cloud-black.png" />
+    <Content Include="html-resources\css\images\icons-png\cloud-white.png" />
+    <Content Include="html-resources\css\images\icons-png\comment-black.png" />
+    <Content Include="html-resources\css\images\icons-png\comment-white.png" />
+    <Content Include="html-resources\css\images\icons-png\delete-black.png" />
+    <Content Include="html-resources\css\images\icons-png\delete-white.png" />
+    <Content Include="html-resources\css\images\icons-png\edit-black.png" />
+    <Content Include="html-resources\css\images\icons-png\edit-white.png" />
+    <Content Include="html-resources\css\images\icons-png\eye-black.png" />
+    <Content Include="html-resources\css\images\icons-png\eye-white.png" />
+    <Content Include="html-resources\css\images\icons-png\forbidden-black.png" />
+    <Content Include="html-resources\css\images\icons-png\forbidden-white.png" />
+    <Content Include="html-resources\css\images\icons-png\forward-black.png" />
+    <Content Include="html-resources\css\images\icons-png\forward-white.png" />
+    <Content Include="html-resources\css\images\icons-png\gear-black.png" />
+    <Content Include="html-resources\css\images\icons-png\gear-white.png" />
+    <Content Include="html-resources\css\images\icons-png\grid-black.png" />
+    <Content Include="html-resources\css\images\icons-png\grid-white.png" />
+    <Content Include="html-resources\css\images\icons-png\heart-black.png" />
+    <Content Include="html-resources\css\images\icons-png\heart-white.png" />
+    <Content Include="html-resources\css\images\icons-png\home-black.png" />
+    <Content Include="html-resources\css\images\icons-png\home-white.png" />
+    <Content Include="html-resources\css\images\icons-png\info-black.png" />
+    <Content Include="html-resources\css\images\icons-png\info-white.png" />
+    <Content Include="html-resources\css\images\icons-png\location-black.png" />
+    <Content Include="html-resources\css\images\icons-png\location-white.png" />
+    <Content Include="html-resources\css\images\icons-png\lock-black.png" />
+    <Content Include="html-resources\css\images\icons-png\lock-white.png" />
+    <Content Include="html-resources\css\images\icons-png\mail-black.png" />
+    <Content Include="html-resources\css\images\icons-png\mail-white.png" />
+    <Content Include="html-resources\css\images\icons-png\minus-black.png" />
+    <Content Include="html-resources\css\images\icons-png\minus-white.png" />
+    <Content Include="html-resources\css\images\icons-png\navigation-black.png" />
+    <Content Include="html-resources\css\images\icons-png\navigation-white.png" />
+    <Content Include="html-resources\css\images\icons-png\phone-black.png" />
+    <Content Include="html-resources\css\images\icons-png\phone-white.png" />
+    <Content Include="html-resources\css\images\icons-png\plus-black.png" />
+    <Content Include="html-resources\css\images\icons-png\plus-white.png" />
+    <Content Include="html-resources\css\images\icons-png\power-black.png" />
+    <Content Include="html-resources\css\images\icons-png\power-white.png" />
+    <Content Include="html-resources\css\images\icons-png\recycle-black.png" />
+    <Content Include="html-resources\css\images\icons-png\recycle-white.png" />
+    <Content Include="html-resources\css\images\icons-png\refresh-black.png" />
+    <Content Include="html-resources\css\images\icons-png\refresh-white.png" />
+    <Content Include="html-resources\css\images\icons-png\search-black.png" />
+    <Content Include="html-resources\css\images\icons-png\search-white.png" />
+    <Content Include="html-resources\css\images\icons-png\shop-black.png" />
+    <Content Include="html-resources\css\images\icons-png\shop-white.png" />
+    <Content Include="html-resources\css\images\icons-png\star-black.png" />
+    <Content Include="html-resources\css\images\icons-png\star-white.png" />
+    <Content Include="html-resources\css\images\icons-png\tag-black.png" />
+    <Content Include="html-resources\css\images\icons-png\tag-white.png" />
+    <Content Include="html-resources\css\images\icons-png\user-black.png" />
+    <Content Include="html-resources\css\images\icons-png\user-white.png" />
+    <Content Include="html-resources\css\images\icons-png\video-black.png" />
+    <Content Include="html-resources\css\images\icons-png\video-white.png" />
+    <Content Include="html-resources\css\images\icons-svg\action-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\action-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\alert-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\alert-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-d-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-d-l-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-d-l-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-d-r-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-d-r-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-d-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-l-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-l-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-r-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-r-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-u-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-u-l-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-u-l-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-u-r-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-u-r-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\arrow-u-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\audio-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\audio-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\back-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\back-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\bars-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\bars-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\bullets-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\bullets-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\calendar-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\calendar-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\camera-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\camera-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\carat-d-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\carat-d-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\carat-l-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\carat-l-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\carat-r-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\carat-r-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\carat-u-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\carat-u-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\check-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\check-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\clock-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\clock-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\cloud-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\cloud-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\comment-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\comment-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\delete-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\delete-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\edit-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\edit-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\eye-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\eye-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\forbidden-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\forbidden-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\forward-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\forward-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\gear-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\gear-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\grid-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\grid-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\heart-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\heart-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\home-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\home-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\info-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\info-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\location-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\location-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\lock-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\lock-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\mail-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\mail-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\minus-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\minus-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\navigation-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\navigation-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\phone-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\phone-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\plus-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\plus-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\power-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\power-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\recycle-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\recycle-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\refresh-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\refresh-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\search-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\search-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\shop-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\shop-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\star-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\star-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\tag-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\tag-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\user-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\user-white.svg" />
+    <Content Include="html-resources\css\images\icons-svg\video-black.svg" />
+    <Content Include="html-resources\css\images\icons-svg\video-white.svg" />
+    <Content Include="html-resources\css\index.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\css\ionicons.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\css\jquery.mobile-1.4.5.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\css\jquery.mobile.custom.structure.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\css\jquery.mobile.custom.theme.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\AdminLTE.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\AdminLTE.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-black-light.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-black-light.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-black.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-black.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-blue-light.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-blue-light.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-blue.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-blue.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-green-light.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-green-light.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-green.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-green.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-purple-light.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-purple-light.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-purple.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-purple.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-red-light.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-red-light.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-red.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-red.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-yellow-light.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-yellow-light.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-yellow.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\skin-yellow.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\_all-skins.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\css\skins\_all-skins.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\avatar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\avatar04.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\avatar2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\avatar3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\avatar5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\boxed-bg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\boxed-bg.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\credit\american-express.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\credit\cirrus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\credit\mastercard.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\credit\mestro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\credit\paypal.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\credit\paypal2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\credit\visa.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\default-50x50.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\icons.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\photo1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\photo2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\photo3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\photo4.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\user1-128x128.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\user2-160x160.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\user3-128x128.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\user4-128x128.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\user5-128x128.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\user6-128x128.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\user7-128x128.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\img\user8-128x128.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\js\app.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\js\app.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\js\demo.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\js\pages\dashboard.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\dist\js\pages\dashboard2.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\fonts\fontawesome-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\images\cordova.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\images\loading.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\images\MINDEF.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\images\MITI.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\login.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\scripts\action.news.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\scripts\common.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\scripts\index.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\scripts\jquery-2.2.3.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\scripts\jquery.mobile-1.4.5.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\scripts\jquery.mobile.custom.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\scripts\moment.min.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\scripts\platformOverrides.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html-resources\starter.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\chromium-256.png" />
+    <None Include="Resources\cls.JPG" />
+    <Content Include="Resources\nav_left_green.png" />
+    <Content Include="Resources\nav_plain_green.png" />
+    <Content Include="Resources\nav_plain_red.png" />
+    <Content Include="Resources\nav_right_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="html-resources\plugins\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleApp\ConsoleApp.csproj">
+      <Project>{4238a1e4-3a2c-4110-b428-170874c3615f}</Project>
+      <Name>ConsoleApp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\cef.redist.x64.3.2785.1486\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2785.1486\build\cef.redist.x64.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.2785.1486\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2785.1486\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.2785.1486\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2785.1486\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.53.0.1\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.53.0.1\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.53.0.1\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.53.0.1\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.53.0.1\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.53.0.1\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.53.0.1\build\CefSharp.WinForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.53.0.1\build\CefSharp.WinForms.targets'))" />
+  </Target>
+  <Import Project="..\packages\cef.redist.x86.3.2785.1486\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2785.1486\build\cef.redist.x86.targets')" />
+  <Import Project="..\packages\CefSharp.Common.53.0.1\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.53.0.1\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.WinForms.53.0.1\build\CefSharp.WinForms.targets" Condition="Exists('..\packages\CefSharp.WinForms.53.0.1\build\CefSharp.WinForms.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

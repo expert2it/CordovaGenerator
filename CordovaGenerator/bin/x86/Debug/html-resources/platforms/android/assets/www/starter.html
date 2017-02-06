@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; connect-src *;  img-src * data:; style-src 'self' 'unsafe-inline' *; media-src *; script-src 'self' 'unsafe-inline';">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">-->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=medium-dpi" />
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <!-- Font Awesome -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Ionicons -->
+    <link href="css/ionicons.min.css" rel="stylesheet" />
+    <link href="css/jquery.mobile.custom.structure.min.css" rel="stylesheet" />
+    <!-- Theme style ***** minified file is the original backup, Please minify the AdminLTE.css & skin-blue.css manually for disturbution ***** -->
+    <link rel="stylesheet" href="dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="dist/css/skins/skin-blue.css">    
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="css/google.fonts.css" rel="stylesheet" />
+    <title>CBDNews</title>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed">
+    <div class="wrapper" id="main-warpper">
+        <!-- Main Header -->
+        <header class="main-header" data-role="header">
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <i class="fa fa-bars fa-2x"></i>
+                    <h4 id="header-title" style="float:right;margin-left:1em;">News Summery</h4>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- /.messages-menu -->
+                        <!-- Notifications Menu -->
+                        <li class="dropdown notifications-menu" id="drpDownMenu">
+                            <!-- Menu toggle button -->
+                            <a id="drpdownToggle" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o fa-2x"></i>
+                                <span id="msg-total" class="label label-warning">0</span>
+                            </a>
+                        </li>
+                        <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" data-rel="back">
+                                <i class="fa fa-arrow-left fa-2x"></i>
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">Back</span>
+                            </a>                            
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <div class="form-group" style="margin: 25px 3px 15px">
+                    <select id="allSubjects" class="form-control" onchange="getAllPlainNews(true)">
+                        <option value="0" selected disabled>List of subjects</option>
+                    </select>
+                    <select id="allDates" class="form-control" onchange="getAllDailyNewsByDate(true)">
+                        <option value="0" selected disabled>List of dates</option>
+                    </select>
+                </div>
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu" id="sidebarMenu">
+                    <!--<li class="header">HEADER</li>-->
+                    <!-- Optionally, you can add icons to the links -->
+                    <li class="active">
+                        <a href="#mainPage" onclick="closeMenu()" data-transition="fade" data-prefetch="true" data-ajax="true">  <!--data-rel="back"--> 
+                            <i class="fa fa-home fa"></i> <span>Daily update</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#noiPage" onclick="closeMenu()" data-transition="fade" data-prefetch="true" data-ajax="true">
+                            <i class="fa fa-th-list"></i> <span>Selected news</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#newsInsight" onclick="closeMenu()" data-transition="fade" data-prefetch="true" data-ajax="true">
+                            <i class="fa fa-newspaper-o"></i> <span>News insight</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="logout()" data-transition="fade">
+                            <i class="fa fa-power-off"></i> <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.sidebar-menu -->
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <div style="text-align: center;padding-top: 0;margin-top: -0.2em;width: 100%;position: absolute;z-index: 1000;" id="spinnerDiv">
+            <img class="loading no-style" src="images/loading.png" />
+        </div>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" data-role="page" id="mainPage" style="position: relative">
+        </div>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" data-role="page" id="singleNews" style="position: relative">
+        </div>
+        <!-- /.content-wrapper -->
+        <div id="commentPage" data-role="page" class="content-wrapper" style="position: relative">
+            <!-- Box Comment -->
+            <div class="box box-widget" style="top:0">
+                <div id="commentParents" class="box-footer-comment box-comments">                    
+                </div>
+                <div class="box-footer-comment" style="padding: 10px 0;">
+                    <div class="input-group" style="display: flex;border: solid 1px #e2e2e2;">
+                        <textarea id="new-comment" placeholder="comment..." class="form-control" style="border: none;resize: none;"></textarea>
+                        <button type="button" onclick="postComment()" class="btn btn-default btn-flat" style="border-width: 0;background-color: transparent;color: #d44e00;">
+                            <i class="fa fa-paper-plane fa-2x pull-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box -->
+        <div data-role="page" class="content-wrapper" id="newsInsight" data-dom-cache="true" style="position: relative;">          
+        </div>
+        <div data-role="page" class="content-wrapper" id="singleNewsInsight" style="position: relative;">
+        </div>
+        <!-- News of Interest -->
+        <div id="noiPage" data-role="page" class="content-wrapper" style="position: relative">            
+        </div>
+        <div id="singlePlainNews" data-role="page" class="content-wrapper" style="position: relative">
+        </div>
+        <!-- /.row -->
+        <!-- END CUSTOM TABS -->
+        <!-- /.row -->
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED JS SCRIPTS -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <!-- jQuery 2.2.3 -->
+    <script src="scripts/jquery-2.2.3.min.js"></script>
+    <script src="scripts/jquery.mobile.custom.min.js"></script>
+    <script src="scripts/moment.min.js"></script>
+    <!--<script src="scripts/jquery.mobile-1.4.5.min.js"></script>-->
+    <!-- Bootstrap 3.3.6 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!--<script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>-->
+    <!-- AdminLTE App -->
+    <script src="dist/js/app.min.js"></script>
+    <!-- ActionNews utility -->
+    <script src="scripts/common.js"></script>
+    <script src="scripts/action.news.js"></script>
+</body>
+</html>
